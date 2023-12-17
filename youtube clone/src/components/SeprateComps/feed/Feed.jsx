@@ -7,11 +7,11 @@ const Feed = () => {
   const [seletcedCat,setSeletedCat] = useState('New')
   const [videos,setVideos] = useState([])
   useEffect(() => {
-    // fetchDataApi(`search?part=snippet&q=${seletcedCat}`)
-    //   .then((data) => {
-    //     setVideos(data.items)
-    // })
-    setVideos(sampleResponse)
+    fetchDataApi(`search?part=snippet&q=${seletcedCat}`)
+      .then((data) => {
+        setVideos(data.items)
+    })
+    // setVideos(sampleResponse)
   }, [seletcedCat])
   // console.log(videos)
   return (

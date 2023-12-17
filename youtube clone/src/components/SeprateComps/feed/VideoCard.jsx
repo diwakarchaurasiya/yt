@@ -11,7 +11,7 @@ const VideoCard = ({ video:{id:{videoId},snippet} }) => {
                   <CardMedia
                       image={snippet?.thumbnails?.high?.url||demoThumbnailUrl}
                       alt={snippet?.title}
-                      sx={{ width: { md:358,xs:'100%'}, height:180,borderRadius:{md:'8px',xs:'0px'}}}
+                      sx={{ width: '100%', height:180,borderRadius:{md:'8px',sx:'0px'}}}
                   /> 
               <CardContent 
                       sx={{  width: 'auto', height:{md:"5rem",xs:"auto"}, border: 'none',}}>
@@ -20,7 +20,7 @@ const VideoCard = ({ video:{id:{videoId},snippet} }) => {
                               {snippet?.title.slice(0,60)+'...'|| demoVideoTitle.slice(0,60)+'...'}
                           </Typography>
                       </Link>
-                      <Link to={snippet.channelId ? `channel/${snippet.channelId}` : demoChannelUrl}>
+                      <Link to={snippet?.channelId ? `channel/${snippet.channelId}` : demoChannelUrl}>
                           <Typography variant='subtitle2' fontWeight='bold'color='gray'>
                               {snippet?.channelTitle || demoChannelTitle}
                               <CheckCircle sx={{fontSize:12, color:'gray',ml:'3px'}}/>
