@@ -1,0 +1,6 @@
+export { default as Navbar } from './SeprateComps/Navbar'
+export { default as Feed } from './SeprateComps/feed/Feed'
+export { default as ChannelDetails } from './SeprateComps/ChannelDetails'
+export { default as SearchFeed } from './SeprateComps/SearchFeed'
+export { default as VideoPlayer } from './SeprateComps/VideoPlayer'
+export { default as SearchBar } from './SeprateComps/SearchBar'
