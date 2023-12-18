@@ -37,8 +37,10 @@ const ChannelDetails = () => {
         </Box>
           <Video videos={channelVideos} />
       </Box> 
-</>
+    </>
+    
   )
+  setChanelDets('')
 }
 
 export default ChannelDetails

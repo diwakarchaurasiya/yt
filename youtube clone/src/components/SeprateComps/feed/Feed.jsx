@@ -4,7 +4,7 @@ import { Stack, Typography, Box } from '@mui/material'
 import { fetchDataApi,sampleResponse } from '../../utils/fetchDataApi'
 import Video from './Video'
 const Feed = () => {
-  const [seletcedCat,setSeletedCat] = useState('New')
+  const [seletcedCat,setSeletedCat] = useState('NextJS')
   const [videos,setVideos] = useState([])
   useEffect(() => {
     fetchDataApi(`search?part=snippet&q=${seletcedCat}`)
@@ -13,7 +13,7 @@ const Feed = () => {
     })
     // setVideos(sampleResponse)
   }, [seletcedCat])
-  // console.log(videos)
+  console.log(videos)
   return (
     <>
         <Stack sx={{display:'flex',flexDirection:{sx:'column',md:'row'}}}>

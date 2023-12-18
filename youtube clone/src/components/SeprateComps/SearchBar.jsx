@@ -1,22 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Paper, IconButton } from '@mui/material'
 import { Search } from '@mui/icons-material'
+import { Link ,useNavigate} from 'react-router-dom';
 const SearchBar = () => {
+  let [query, setQuery] = useState('');
+  let navigate = useNavigate();
+  let handleSubmit = (e) => {
+    e.preventDefault();
+    if (query) {
+      navigate(`search/${query}`)
+      setQuery('')
+    }
+  }
    return (
      <>
-       <Paper component='form' onSubmit={() => {}} sx={{
+       <Paper component='form' onSubmit={handleSubmit} sx={{
          borderRadius: 20, boxShadow: 'none',border:'1px solid #0e0e0e',pl:5, mr:{sm:5}
        }} >
          <input
            className='search-bar'
-           value=""
+           value={query}
            placeholder='Search...'
-           onChange={() => { }}
+           onChange={(data) => {setQuery(data.target.value)}}
            sx={{ fontSize:'20px'}}
            />
+         <Link to={`channel/${query}`}>
          <IconButton>
            <Search type='submit' onSubmit={()=>{}} sx={{color:'red'}}/>
          </IconButton>
+         </Link>
        </Paper>    
     </>
   )

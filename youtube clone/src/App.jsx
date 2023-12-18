@@ -6,7 +6,7 @@ function App() {
 return (
     <>
       <BrowserRouter>
-        <Box sx={{ background: '#1e1e1e' }}>
+        <Box sx={{ background: '#0e0e0e' }}>
         <Navbar />
         <Routes>
           <Route path='/' exact element={<Feed/>}/>
