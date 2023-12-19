@@ -7,7 +7,7 @@ const Navbar = () => {
   return (
     <>
       <Stack direction={{ xs: 'column', sm: 'row' }} alignItems='center' p={2} sx={{
-        position: 'sticky', background: "#0e0e0e", top: 0, justifyContent: 'space-between',boxShadow:'0px -80px 100px white'
+        position: 'sticky', background: "#0e0e0e", top: 0, justifyContent: 'space-between', boxShadow: '0px -80px 100px white', zIndex:10
       }}>
         <Link to="/" style={{
           display: "flex", alignItems: 'center', justifyContent:'center'}}>
