@@ -18,6 +18,8 @@ const SearchBar = () => {
          borderRadius: 20, boxShadow: 'none',border:'1px solid #0e0e0e',pl:5, mr:{sm:5}
        }} >
          <input
+           autoSave={query }
+           autoFocus={true}
            className='search-bar'
            value={query}
            placeholder='Search...'
