@@ -21,10 +21,10 @@ const VideoPlayer = () => {
   if (!playAbleVideos?.snippet) return 'loading ...'
   let { snippet:{title,channelId,channelTitle},statistics:{viewCount,likeCount} } = playAbleVideos;
   return (
-    <Box minHeight='95vh'>
+    <Box Height='100vh'>
       <Stack flexDirection={{ xs: 'column',md:'row'} }>
         <Box flex={1} paddingX={2}> 
-          <Box sx={{ width: '100%', position: 'sticky', top: '90px'}}>
+          <Box sx={{ width: '100%', position: 'sticky', top: '90px'}}>vw
             <ReactPlayer url={`https://www.youtube.com/watch?v=${id}`} controls className='react-player'/>
             <Typography  variant='h5' sx={{color:'#fff',fontWeight:'bold',p:2}}>
               {title}
@@ -47,7 +47,7 @@ const VideoPlayer = () => {
             </Stack>
           </Box>
         </Box>
-      <Box sx={{ justifyContent: 'center', alignItems: 'center', px:{md:2,sm:5},py:2}}>
+        <Box sx={{ justifyContent: 'center', alignItems: 'center', px: { md: 2, sm: 5 }, py: 2, width: { xs: '100%' ,md:'370px'},overflow:'hidden'}}>
       <Video videos={relatedVideos} direction='column'/>
         </Box>
         </Stack>

@@ -79,9 +79,52 @@ a {
   }
 
   .react-player {
-    height: 45vh !important;
+    height: auto !important;
   }
   .search-bar{
     width:200px;
+  }
+}
+
+
+/* animation and skeleton pages */
+.skelton{
+  animation:skeleton-animate 1s infinite both;
+  border-radius: .5rem;
+}
+.card{
+  padding: 1rem;
+  width: 358px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+.image{
+  width: 358px;
+  height: 200px;
+}
+.heading{
+  margin: 1rem 0;
+  width: 100%;
+  height: 1rem;
+}
+.text{
+  margin: .5rem 0;
+  width: 100%;
+  height: .5rem;
+}
+.text:last-child{
+  width: 70%;
+}
+@keyframes skeleton-animate {
+  0%{
+    background-color: #fefefe6c;
+  }
+  50%{
+    background-color: #7c7c7cb2;
+  }
+  100%{
+    background-color: #e9e9e96c;
   }
 }
