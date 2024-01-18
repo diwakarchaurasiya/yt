@@ -6,22 +6,42 @@ import { Box, Typography, Stack } from '@mui/material'
 import { CheckCircle } from '@mui/icons-material'
 import { fetchDataApi } from '../utils/fetchDataApi'
 import Video from './feed/Video'
+import VideoSkeleton from '../skeltonPages/VideoSkeleton'
 const VideoPlayer = () => {
   let [playAbleVideos,setPlayAbleVideos ]= useState([])
   let [relatedVideos, setrelatedVideos] = useState([])
   const { id } = useParams();
   useEffect(() => {
+   try {
     fetchDataApi(`videos?part=snippet,statistics&id=${id}`)
-      .then((data) => setPlayAbleVideos(data.items[0])
-      )
-    fetchDataApi(`search?part=snippet&relatedToVideoId=${id}&type=video`)
-      .then((data) => setrelatedVideos(data.items)
-      )
+    .then((data) => setPlayAbleVideos(data.items[0])
+    )
+  fetchDataApi(`search?part=snippet&relatedToVideoId=${id}&type=video`)
+    .then((data) => setrelatedVideos(data.items)
+    )
+   } catch (error) {
+    console.log('got an error' + error)
+   }
   }, [id])
-  if (!playAbleVideos?.snippet) return 'loading ...'
+  if (!playAbleVideos?.snippet) return (
+    < Box Height='95vh'>
+      <Stack flexDirection={{ xs: 'column', md: 'row' }} >
+        <Box sx={{ width: '80%', height: '70vh', position: 'sticky', top: '100px', background: '#fff', margin: ' 2rem 0 5px 2rem' }} className='skelton'>
+        </Box>
+        <Box sx={{ justifyContent: 'center', alignItems: 'center', px: { md: 2, sm: 5 }, py: 2, width: { xs: '100%' ,md:'420px'},overflow:'hidden'}}>
+<VideoSkeleton/>
+<VideoSkeleton/>
+<VideoSkeleton/>
+<VideoSkeleton/>
+<VideoSkeleton/>
+        </Box>
+    </Stack>
+  
+  </Box>
+  )
   let { snippet:{title,channelId,channelTitle},statistics:{viewCount,likeCount} } = playAbleVideos;
   return (
-    <Box Height='100vh'>
+    <Box minHeight='95vh'>
       <Stack flexDirection={{ xs: 'column',md:'row'} }>
         <Box flex={1} paddingX={2}> 
           <Box sx={{ width: '100%', position: 'sticky', top: '90px'}}>vw

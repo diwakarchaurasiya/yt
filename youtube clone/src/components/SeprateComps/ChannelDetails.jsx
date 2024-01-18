@@ -11,7 +11,8 @@ const ChannelDetails = () => {
   const [channelDet, setChanelDets] = useState([]);
   const [channelVideos, setChanelVideos] = useState([]);
   useEffect(() => {
-    fetchDataApi(`channels?part="snippet&id=${id}`)
+    try {
+      fetchDataApi(`channels?part="snippet&id=${id}`)
       .then((data) => {
       setChanelDets(data?.items[0])
       })
@@ -19,6 +20,9 @@ const ChannelDetails = () => {
       .then((data) => {
         setChanelVideos(data.items)
     })
+    } catch (error) {
+      console.log('got error in loading data ' + error)
+    }
 
     // setChanelDets(channelDetailsResponse);
     // setChanelVideos(channelVdoResponse);

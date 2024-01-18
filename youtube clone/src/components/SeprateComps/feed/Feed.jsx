@@ -7,10 +7,14 @@ const Feed = () => {
   const [seletcedCat,setSeletedCat] = useState('New')
   const [videos,setVideos] = useState([])
   useEffect(() => {
-    fetchDataApi(`search?part=snippet&q=${seletcedCat}`)
+    try {
+      fetchDataApi(`search?part=snippet&q=${seletcedCat}`)
       .then((data) => {
         setVideos(data.items)
     })
+    } catch (error) {
+      console.log('got error in loading data ' + error)
+    }
     // setVideos(sampleResponse)
   }, [seletcedCat])
   console.log(videos)
