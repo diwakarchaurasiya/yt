@@ -6,8 +6,8 @@ import { demoThumbnailUrl, demoChannelUrl, demoVideoUrl, demoChannelTitle, demoV
 const VideoCard = ({ video: { id: { videoId }, snippet } }) => {
   return (
       <>
-          <Card sx={{ width: { md: "358px", xs: '100%' }, boxShadow: 0, border: 'none', background: '#1e1e1e'}}>
-              <Link to={videoId?`video/${videoId}`:demoVideoUrl}>
+          <Card sx={{ width: { md: "358px", xs: '100%' }, boxShadow: '0',background: '#1e1e1e'}}>
+              <Link to={videoId?`/video/${videoId}`:demoVideoUrl}>
                   <CardMedia
                       image={snippet?.thumbnails?.high?.url||demoThumbnailUrl}
                       alt={snippet?.title}
@@ -17,7 +17,7 @@ const VideoCard = ({ video: { id: { videoId }, snippet } }) => {
                       sx={{  width: 'auto', height:{md:"5rem",xs:"auto"}, border: 'none'}}>
                       <Link to={videoId ? `video/${videoId}` : demoVideoUrl}>
                           <Typography variant='subtitle1' fontWeight='bold'color='#fff'>
-                              {snippet?.title.slice(0,60)+'...'|| demoVideoTitle.slice(0,60)+'...'}
+                              {(snippet?.title+ ' || Diwakar Chaurasiya(Fullstack MERN Developer,)').slice(0,60)+'...'|| demoVideoTitle.slice(0,60)+'...'}
                           </Typography>
                       </Link>
                       <Link to={snippet?.channelId ? `channel/${snippet.channelId}` : demoChannelUrl}>

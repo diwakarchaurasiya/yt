@@ -11,9 +11,10 @@ const SearchFeed = () => {
       .then((data) => {
         setVideos(data.items)
     })
-    // setVideos(sampleResponse)
   }, [query])
-  // console.log(videos)
+  useEffect(() => {
+    setVideos('')
+  },[query])
   return (
     <>
         

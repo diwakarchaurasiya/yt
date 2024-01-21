@@ -23,12 +23,16 @@ const VideoPlayer = () => {
     console.log('got an error' + error)
    }
   }, [id])
+  useEffect(() => {
+    setrelatedVideos('')
+    setPlayAbleVideos('')  }
+    , [id])
   if (!playAbleVideos?.snippet) return (
-    < Box Height='95vh'>
+    < Box height='95vh'>
       <Stack flexDirection={{ xs: 'column', md: 'row' }} >
-        <Box sx={{ width: '80%', height: '70vh', position: 'sticky', top: '100px', background: '#fff', margin: ' 2rem 0 5px 2rem' }} className='skelton'>
+        <Box sx={{ width: '80%', height: '70vh', top: '100px', background: '#fff', margin: ' 2rem 0 5px 2rem' }} className='skelton'>
         </Box>
-        <Box sx={{ justifyContent: 'center', alignItems: 'center', px: { md: 2, sm: 5 }, py: 2, width: { xs: '100%' ,md:'420px'},overflow:'hidden'}}>
+        <Box sx={{ justifyContent: 'center', alignItems: 'center', px: { md: 2, sm: 5 }, py: 2, width: { xs: '100%' ,md:'420px'},height:'100vh',overflow:'auto'}}>
 <VideoSkeleton/>
 <VideoSkeleton/>
 <VideoSkeleton/>
@@ -41,22 +45,22 @@ const VideoPlayer = () => {
   )
   let { snippet:{title,channelId,channelTitle},statistics:{viewCount,likeCount} } = playAbleVideos;
   return (
-    <Box minHeight='95vh'>
+    <Box>
       <Stack flexDirection={{ xs: 'column',md:'row'} }>
         <Box flex={1} paddingX={2}> 
-          <Box sx={{ width: '100%', position: 'sticky', top: '90px'}}>vw
-            <ReactPlayer url={`https://www.youtube.com/watch?v=${id}`} controls className='react-player'/>
+          <Box sx={{ width: '100%', position: 'sticky', top: '90px'}}>
+            <ReactPlayer url={`https://www.youtube.com/watch?v=${id}`} className='react-player' playing={true}  loop={true} controls={true} sx={{ borderRadius: '20px', height: '70vh', width: '100vw' }}/>
             <Typography  variant='h5' sx={{color:'#fff',fontWeight:'bold',p:2}}>
               {title}
             </Typography>
-            <Stack direction='row' justifyContent='space-between' color='#fff' py={2} px={1}
+            <Stack direction={{ md:'row',xs:'column'}} justifyContent={{md:'space-between',xs:'center'}} color='#fff' py={2} px={1}
             >
               <Link to={`/channel/${channelId}`}>
-                <Typography variant={{md :'h6', sm : 'subtitle1'}} sx={{color:'#fff' ,px:4}}>
+                <Typography  sx={{fontSize:'30px',color:'#fff' ,px:4}}>
                   {channelTitle}<CheckCircle sx={{fontSize:'12px', color:'gray',pl:'5px'}}/>
                 </Typography>
                 </Link>
-                <Stack direction='row' sx={{color:'#fff',alignItems:'center'}}>
+                <Stack sx={{color:'#fff',alignItems:'center',direction:{lg:'row',sx:'column'}}}>
                   <Typography variant='body1' sx={{opacity:'0.8',paddingX:'5rem'}}>
                     {parseInt(viewCount).toLocaleString()} : views
                   </Typography>
@@ -67,7 +71,7 @@ const VideoPlayer = () => {
             </Stack>
           </Box>
         </Box>
-        <Box sx={{ justifyContent: 'center', alignItems: 'center', px: { md: 2, sm: 5 }, py: 2, width: { xs: '100%' ,md:'370px'},overflow:'hidden'}}>
+        <Box sx={{ justifyContent: 'center', alignItems: 'center', px: { md: 2, sm: 5 },height:'100vh', py: 2, width: { xs: '100%' ,md:'370px'},overflow:'auto'}}>
       <Video videos={relatedVideos} direction='column'/>
         </Box>
         </Stack>

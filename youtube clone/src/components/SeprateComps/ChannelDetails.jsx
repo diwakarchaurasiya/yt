@@ -44,7 +44,6 @@ const ChannelDetails = () => {
     </>
     
   )
-  setChanelDets('')
 }
 
 export default ChannelDetails

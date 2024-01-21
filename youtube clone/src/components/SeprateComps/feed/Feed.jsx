@@ -17,6 +17,7 @@ const Feed = () => {
     }
     // setVideos(sampleResponse)
   }, [seletcedCat])
+  useEffect(() => { setVideos('') }, [seletcedCat]);
   console.log(videos)
   return (
     <>
@@ -25,7 +26,7 @@ const Feed = () => {
           <SideBar seletcedCat={seletcedCat} setSeletedCat={setSeletedCat}/>
         </Box>
         <Box sx={{overflowY:"auto",height:"100vh",flex:2}}>
-          <Typography variant='h4' fontWeight='bold' color='#fff' margin='10px'>
+          <Typography variant='h4' fontWeight='bold' color='#fff' margin='10px' fontSize={{lg:"30px",xs:'15px'}}>
             {seletcedCat} <span style={{color:"red"}}>videos</span>
           </Typography>
           <Video videos={videos} />
