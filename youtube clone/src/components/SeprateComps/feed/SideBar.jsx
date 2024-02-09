@@ -6,7 +6,7 @@ const SideBar = ({seletcedCat,setSeletedCat}) => {
    
     return (
         <>
-        <Stack direction='row' sx={{ overflowY: "auto", height: { sx: "auto", md: '95vh' }, flexDirection: { md: 'column' ,position:{xs:'fixed'}}  }}
+            <Stack direction='row' sx={{ overflowY: "auto", height: { sx: "auto", md: '90vh' }, flexDirection: { md: 'column', xs: 'auto' },position:{xs:'sticky'}  }}
         >
             {categories.map((category) => {
                 return (

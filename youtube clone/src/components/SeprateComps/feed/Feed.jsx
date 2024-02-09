@@ -21,12 +21,12 @@ const Feed = () => {
   console.log(videos)
   return (
     <>
-        <Stack sx={{display:'flex',flexDirection:{sx:'column',md:'row'}}}>
-        <Box sx={{ height: { sx: "auto", md: "95vh" }, borderRight: "1px solid #3d3d3d", padding: { sx: 0, md: 2 } }}>
+      <Stack sx={{ display: 'flex', flexDirection: { sx: 'column', md: 'row' },paddingTop:'4rem'}}>
+        <Box sx={{ height: { sx: "auto", md: "100%" }, borderRight: "4px solid #3d3d3d", padding: { sx: 0, md: 2 } }}>
           <SideBar seletcedCat={seletcedCat} setSeletedCat={setSeletedCat}/>
         </Box>
-        <Box sx={{overflowY:"auto",height:"100vh",flex:2}}>
-          <Typography variant='h4' fontWeight='bold' color='#fff' margin='10px' fontSize={{lg:"30px",xs:'15px'}}>
+        <Box sx={{overflowY:"auto",height:"90vh",flex:2}}>
+          <Typography variant='h4' fontWeight='bold' color='#fff' margin='20px' fontSize={{lg:"30px",xs:'15px'}}>
             {seletcedCat} <span style={{color:"red"}}>videos</span>
           </Typography>
           <Video videos={videos} />

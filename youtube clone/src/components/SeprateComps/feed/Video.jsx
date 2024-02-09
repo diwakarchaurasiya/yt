@@ -8,14 +8,14 @@ import '../../../index.css'
 import sortMethod from '../../sortMethod'
 const Video = ({ videos, direction }) => {
   if (!videos?.length) return (
-    <Card style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-evenly', alignItems: 'center',background:'#0e0e0e' }}>
+    <Stack direction={direction || 'row'} flexWrap='wrap' justifyContent='space-evenly' sx={{ scrollBehavior: 'smooth' }}>
     <VideoSkeleton/>
     <VideoSkeleton/>
     <VideoSkeleton/>
     <VideoSkeleton/>
     <VideoSkeleton/>
     <VideoSkeleton/>
-      </Card>
+      </Stack>
   );
   return (
     <>

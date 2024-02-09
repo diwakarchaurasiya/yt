@@ -24,7 +24,6 @@ const SearchBar = () => {
            value={query}
            placeholder='Search...'
            onChange={(data) => {setQuery(data.target.value)}}
-           sx={{ fontSize:'24px'}}
            />
          <Link to={`channel/${query}`}>
          <IconButton>

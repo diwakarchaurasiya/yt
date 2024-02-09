@@ -15,12 +15,12 @@ const VideoCard = ({ video: { id: { videoId }, snippet } }) => {
                   /> 
               <CardContent 
                       sx={{  width: 'auto', height:{md:"5rem",xs:"auto"}, border: 'none'}}>
-                      <Link to={videoId ? `video/${videoId}` : demoVideoUrl}>
+                      <Link to={videoId ? `/video/${videoId}` : demoVideoUrl}>
                           <Typography variant='subtitle1' fontWeight='bold'color='#fff'>
                               {(snippet?.title+ ' || Diwakar Chaurasiya(Fullstack MERN Developer,)').slice(0,60)+'...'|| demoVideoTitle.slice(0,60)+'...'}
                           </Typography>
                       </Link>
-                      <Link to={snippet?.channelId ? `channel/${snippet.channelId}` : demoChannelUrl}>
+                      <Link to={snippet?.channelId ? `/channel/${snippet.channelId}` : demoChannelUrl}>
                           <Typography variant='subtitle2' fontWeight='bold'color='gray'>
                               {snippet?.channelTitle || demoChannelTitle}
                               <CheckCircle sx={{fontSize:12, color:'gray',ml:'3px'}}/>

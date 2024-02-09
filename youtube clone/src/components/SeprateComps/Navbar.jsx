@@ -6,12 +6,12 @@ import SearchBar from './SearchBar'
 const Navbar = () => {
   return (
     <>
-      <Stack direction={{ xs: 'column', sm: 'row' }} alignItems='center' p={2} sx={{
-        position: 'sticky', background: "#0e0e0e", top: 0, justifyContent: 'space-between', boxShadow: '0px -80px 100px white', zIndex:10
+      <Stack direction={{ xs: 'column', sm: 'row' }} alignItems='center' p={2}  sx={{
+        position: 'fixed', background: "#0e0e0e", top: 0, justifyContent: 'space-between',width:'100%' ,boxShadow: '0px -80px 100px white', zIndex:10
       }}>
         <Link to="/" style={{
           display: "flex", alignItems: 'center', justifyContent:'center'}}>
-          <img src={logo} alt='hii' width={50}/>
+          <img src={logo} alt='hii' width={180}/>
         </Link>
         <SearchBar/>
       </Stack>
